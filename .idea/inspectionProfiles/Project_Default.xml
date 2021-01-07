@@ -1,0 +1,79 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <Languages>
+        <language minSize="144" name="Python" />
+      </Languages>
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="5">
+            <item index="0" class="java.lang.String" itemvalue="controllers" />
+            <item index="1" class="java.lang.String" itemvalue="models" />
+            <item index="2" class="java.lang.String" itemvalue="entities" />
+            <item index="3" class="java.lang.String" itemvalue="requests" />
+            <item index="4" class="java.lang.String" itemvalue="utils" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E501" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N802" />
+          <option value="N801" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyShadowingBuiltinsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredNames">
+        <list>
+          <option value="id" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="src.main.controllers.http_agent_adapter.requests_aws4auth" />
+          <option value="src.main.controllers.http_agent_adapter.turtle_python_credentials_provider" />
+          <option value="case_notification_bot.app.controllers" />
+          <option value="case_notification_bot.app.models" />
+          <option value="case_notification_bot.models.http_agent_adapter.models" />
+          <option value="case_notification_bot.models.http_agent_adapter.entities" />
+          <option value="case_notification_bot.models.http_agent_adapter.controllers" />
+          <option value="case_notification_bot.models.http_case_adapter.*" />
+          <option value="case_notification_bot.models.http_oncall_adapter.*" />
+          <option value="case_notification_bot.models.utils.*" />
+          <option value="case_notification_bot.entities.profile_ops_manager.*" />
+          <option value="case_notification_bot.entities.mandarin_primary.*" />
+          <option value="case_notification_bot.entities.manager_on_duty.*" />
+          <option value="case_notification_bot.controllers.slack_channel_notifier.*" />
+          <option value="case_notification_bot.controllers.sla_decision_maker.*" />
+          <option value="case_notification_bot.controllers.chime_room_notifier.*" />
+          <option value="case_notification_bot.controllers.case_notification_controller_builder.*" />
+          <option value="case_notification_bot.controllers.case_notification_controller.*" />
+          <option value="case_notification_bot.controllers.agent_data_recorder.*" />
+          <option value="case_notification_bot.entities.case_notification_message.*" />
+          <option value="case_notification_bot.controllers.case_notification_message_factory.*" />
+          <option value="case_notification_bot.entities.sla_decision_context.*" />
+          <option value="case_notification_bot.utils.log_utils.logger_init.*" />
+          <option value="case_notification_bot.app.*" />
+          <option value="logging.*" />
+          <option value="case_notification_bot.controllers.case_patrolman.*" />
+          <option value="case_notification_bot.models.http_agent_adapter.*" />
+          <option value="case_notification_bot.entities.system_error_message.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
