@@ -55,7 +55,7 @@ def lambda_handler(event, context):
     print(movies)
 
     for movie in movies:
-        movie_id = movie[0] % 6
+        movie_id = movie[0] % 10
         update_movie_total_ratings(f"{movie_id}", Decimal(movie[1]))
 
     return {
