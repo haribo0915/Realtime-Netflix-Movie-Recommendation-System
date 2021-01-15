@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import StarIcon from '@material-ui/icons/Star';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -55,7 +56,7 @@ export default function RankSection(props) {
       
       <Container className={classes.cardGrid} maxWidth="md">
         <Grid container spacing={4}>
-          {props.movieTopRank.map((card) => (
+          {props.movieTopRank.map((card, i) => (
             <Grid item key={card.id} xs={12} sm={6} md={4}>
               <Card className={classes.card}>
                 <CardMedia
@@ -68,12 +69,15 @@ export default function RankSection(props) {
                     {card.movie_name}
                   </Typography>
                   <Typography>
-                    
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" color="primary">
+                  <Button size="large" color="primary">
+                    <StarIcon className={classes.icon} />
                     {card.rating}
+                  </Button>
+                  <Button size="large" color="red">
+                    {"Top " + (i + 1)}
                   </Button>
                 </CardActions>
               </Card>

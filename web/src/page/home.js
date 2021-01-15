@@ -17,6 +17,7 @@ import Link from '@material-ui/core/Link';
 import MovieBar from '../components/MovieBar';
 import Description from '../components/Description'
 import RankSection from '../components/RankSection'
+import RecommendSection from '../components/RecommendSection'
 import axios from 'axios'
 
 function Copyright() {
@@ -73,25 +74,41 @@ const movieTopRank = [
   {movie_id:3, movie_name:"The Dark Knight", rating:9.1, imageURL:"https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UY67_CR0,0,45,67_AL_.jpg"}, 
   {movie_id:4, movie_name:"The Godfather: Part II", rating:9.0, imageURL:"https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY67_CR1,0,45,67_AL_.jpg"}, 
   {movie_id:5, movie_name:"12 Angry Men", rating:9.0, imageURL:"https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX45_CR0,0,45,67_AL_.jpg"}, 
-  {movie_id:0, movie_name:"The Lord of the Rings: The Return of the King", rating:9.0, imageURL:"https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY67_CR0,0,45,67_AL_.jpg"}
+  {movie_id:0, movie_name:"The Lord of the Rings: The Return of the King", rating:9.0, imageURL:"https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY67_CR0,0,45,67_AL_.jpg"}, 
+  {
+    movie_id: 6, 
+    movie_name: "Schindler's List", 
+    rating: 9, 
+    imageURL: "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX67_CR0,0,67,98_AL_.jpg", 
+  }, 
+  {
+    movie_id: 7, 
+    movie_name: "Inception", 
+    rating: 9, 
+    imageURL: "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_UX67_CR0,0,67,98_AL_.jpg", 
+  }, 
+  {
+    movie_id: 8, 
+    movie_name: "Pulp Fiction", 
+    rating: 9, 
+    imageURL: "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY98_CR0,0,67,98_AL_.jpg", 
+  }, 
+  {
+    movie_id: 9, 
+    movie_name: "Forrest Gump", 
+    rating: 9.9, 
+    imageURL: "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UY98_CR0,0,67,98_AL_.jpg", 
+  }, 
 ]
-
-const movieRecommend = [movieTopRank[0], movieTopRank[2], movieTopRank[1], movieTopRank[4], 
-    movieTopRank[3], 
-    movieTopRank[5]]
 
 
 export default function Home(props) {
   const classes = useStyles();
   const [updateFlag, setUpdate] = useState(false)
 
-  const movieRecommend = [movieTopRank[0], movieTopRank[2], movieTopRank[1], movieTopRank[4], 
-      movieTopRank[3], 
-      movieTopRank[5]]
-
   useEffect(() => {
     timeoutFetch()
-    const intervel = setInterval(timeoutFetch, 10000)
+    const intervel = setInterval(timeoutFetch, 3000)
     return () => clearInterval(intervel)
   })
 
@@ -112,53 +129,18 @@ export default function Home(props) {
       })
   }
 
-  //setInterval(timeoutFetch, 10000)
-  //timeoutFetch()
-  //setInterval(() => {console.log(movieTopRank)}, 10000)
-
   return (
     <React.Fragment>
       <CssBaseline />
       <MovieBar title="Movie Rank" isWelcome={false} />
       <Description title="Movie Rank" />
 
-      <RankSection movieTopRank={movieTopRank} />
+      <RankSection movieTopRank={movieTopRank.slice(0, 6)} />
       
       {/* Recommendation */}
       <MovieBar title="Movie Recommendation" isWelcome={false} />
 
-      <main>
-        <Container className={classes.cardGrid} maxWidth="md">
-          <Grid container spacing={4}>
-            {movieRecommend.map((card) => (
-              <Grid item key={card.movie_id} xs={12} sm={6} md={4}>
-                <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image={card.imageURL}
-                    title="Image title"
-                  />
-                  <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {card.movie_name}
-                    </Typography>
-                    <Typography>
-                      
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      {card.rating}
-                    </Button>
-                    
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </main>
-
+      <RecommendSection />
 
 
       {/* Footer */}
